@@ -20,6 +20,18 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="The more lyrics you know, the more accurate Find That Song will be!"
+        android:id="@+id/textViewInstructions"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="30dp"
+        android:textIsSelectable="true"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Find That Song"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -32,7 +44,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Find Restaurants"
+        android:text="Find Thats Song"
         android:id="@+id/findSongButton"
         android:background="@color/colorAccent"
         android:textColor="@color/colorTextIcons"
@@ -49,6 +61,7 @@
         android:background="@color/background_floating_material_light"
         android:padding="5dp"
         android:layout_marginBottom="10dp" />
+
 
 
 </RelativeLayout>
