@@ -2,6 +2,8 @@ package com.breakstuff.myrestaurants;
 
 import android.support.test.rule.ActivityTestRule;
 
+import com.breakstuff.myrestaurants.ui.MainActivity;
+
 import org.junit.Rule;
 import org.junit.Test;
 
