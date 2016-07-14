@@ -63,7 +63,7 @@ public class DisplaySongsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String lyrics = intent.getStringExtra("lyrics");
 
-        mLocationTextView.setText("HShowing results for lyrics: " + lyrics);
+        mLocationTextView.setText("Showing results for lyrics: " + lyrics);
 
         getSongs(lyrics);
     }
