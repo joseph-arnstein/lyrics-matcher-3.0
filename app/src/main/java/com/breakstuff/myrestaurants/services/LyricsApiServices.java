@@ -25,10 +25,10 @@ import se.akerfeldt.okhttp.signpost.SigningInterceptor;
 /**
  * Created by AlinaAir on 7/6/16.
  */
-public class YelpServices {
+public class LyricsApiServices {
 
     public static void findSong(String song, Callback callback) {
-        String TAG = "YelpServices";
+        String TAG = "LyricsApiServices";
         String api = "apikey";
         Log.v(TAG, song);
 

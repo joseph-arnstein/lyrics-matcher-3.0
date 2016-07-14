@@ -3,7 +3,6 @@ package com.breakstuff.myrestaurants.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,7 +12,7 @@ import android.widget.Toast;
 
 import com.breakstuff.myrestaurants.R;
 import com.breakstuff.myrestaurants.models.Song;
-import com.breakstuff.myrestaurants.services.YelpServices;
+import com.breakstuff.myrestaurants.services.LyricsApiServices;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,14 +23,6 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-//public class DisplaySongsActivity extends AppCompatActivity {
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_display_songs);
-//    }
-//}
 
 public class DisplaySongsActivity extends AppCompatActivity {
     public static final String TAG = DisplaySongsActivity.class.getSimpleName();
@@ -42,9 +33,6 @@ public class DisplaySongsActivity extends AppCompatActivity {
     ListView mListView;
 
     public ArrayList<Song> mSongs = new ArrayList<>();
-//    private String[] songNames = new String[] {"Sweet Hereafter", "Cricket", "Hawthorne Fish House", "Viking Soul Food",
-//            "Red Square", "Horse Brass", "Dick's Kitchen", "Taco Bell", "Me Kha Noodle Bar",
-//            "La Bonita Taqueria", "Smokehouse Tavern", "Pembiche", "Kay's Bar", "Gnarly Grey", "Slappy Cakes", "Mi Mero Mole" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +60,8 @@ public class DisplaySongsActivity extends AppCompatActivity {
     }
 
     private void getSongs(String lyrics) {
-        final YelpServices yelpService = new YelpServices();
-        yelpService.findSong(lyrics, new Callback() {
+        final LyricsApiServices lyricsApiServices = new LyricsApiServices();
+        lyricsApiServices.findSong(lyrics, new Callback() {
 
             @Override
             public void onFailure(Call call, IOException e) {
@@ -82,7 +70,7 @@ public class DisplaySongsActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) {
-                mSongs = yelpService.processResults(response);
+                mSongs = lyricsApiServices.processResults(response);
 
 
                 DisplaySongsActivity.this.runOnUiThread(new Runnable() {
