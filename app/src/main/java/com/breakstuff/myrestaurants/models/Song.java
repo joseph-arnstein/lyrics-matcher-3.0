@@ -3,6 +3,8 @@ package com.breakstuff.myrestaurants.models;
 /**
  * Created by AlinaAir on 7/12/16.
  */
+
+@Parcel
 public class Song {
     private String song;
     private String band;
