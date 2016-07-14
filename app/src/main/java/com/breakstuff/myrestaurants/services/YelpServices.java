@@ -30,21 +30,12 @@ public class YelpServices {
     public static void findSong(String song, Callback callback) {
         String TAG = "YelpServices";
         String api = "apikey";
-//        OkHttpOAuthConsumer consumer = new OkHttpOAuthConsumer(Constants.YELP_CONSUMER_KEY, Constants.YELP_CONSUMER_SECRET);
-//        consumer.setTokenWithSecret(Constants.YELP_TOKEN, Constants.YELP_TOKEN_SECRET);
-//
-//        OkHttpClient client = new OkHttpClient.Builder()
-//                .addInterceptor(new SigningInterceptor(consumer))
-//                .build();
-        //location = location.replaceAll("\\s+","%20");
         Log.v(TAG, song);
 
         OkHttpClient client = new OkHttpClient();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.LYRICS_BASE_URL).newBuilder();
-
         urlBuilder.setQueryParameter(Constants.LYRICS_QUERY_PARAMETER, song);
-
         urlBuilder.addQueryParameter(api, Constants.LYRICS_API_KEY);
         String url = urlBuilder.build().toString();
         Log.v(TAG, url);
@@ -74,23 +65,11 @@ public class YelpServices {
                     String songName = songsJSON.getJSONObject("track").getString("track_name");
                     String bandName = songsJSON.getJSONObject("track").getString("artist_name");
                     String albumName = songsJSON.getJSONObject("track").getString("album_name");
+                    String albumImg = songsJSON.getJSONObject("track").getString("album_coverart_100x100");
+                    String spotifyId = songsJSON.getJSONObject("track").getString("track_spotify_id");
 
-//                    String phone = restaurantJSON.optString("display_phone", "Phone not available");
-//                    String website = restaurantJSON.getString("url");
-//                    double rating = restaurantJSON.getDouble("rating");
-//                    String imageUrl = restaurantJSON.getString("image_url");
-//                    double latitude = restaurantJSON.getJSONObject("location")
-//                            .getJSONObject("coordinate").getDouble("latitude");
-//                    double longitude = restaurantJSON.getJSONObject("location")
-//                            .getJSONObject("coordinate").getDouble("longitude");
-//                    ArrayList<String> address = new ArrayList<>();
-//                    JSONArray addressJSON = restaurantJSON.getJSONObject("location")
-//                            .getJSONArray("display_address");
-//                    for (int y = 0; y < addressJSON.length(); y++) {
-//                        address.add(addressJSON.get(y).toString());
-//                    }
 
-                    Song song = new Song(songName, bandName, albumName);
+                    Song song = new Song(songName, bandName, albumName, albumImg, spotifyId);
                     songs.add(song);
                 }
 

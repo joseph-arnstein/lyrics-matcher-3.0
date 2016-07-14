@@ -79,16 +79,6 @@ public class DisplaySongsActivity extends AppCompatActivity {
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
-//
-//            @Override
-//            public void onResponse(Call call, Response response) throws IOException {
-//                try {
-//                    String jsonData = response.body().string();
-//                    Log.v(TAG, jsonData);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
 
             @Override
             public void onResponse(Call call, Response response) {
@@ -105,12 +95,6 @@ public class DisplaySongsActivity extends AppCompatActivity {
                         }
                         ArrayAdapter adapter = new ArrayAdapter(DisplaySongsActivity.this, android.R.layout.simple_list_item_1, songNames);
                         mListView.setAdapter(adapter);
-
-//                        for (Song song : songNames) {
-//                            Log.d(TAG, "Arist: " + song.getBand());
-//                            Log.d(TAG, "Album: " + song.getAlbum());
-//                            Log.d(TAG, "Song: " + song.getSong());
-//                        }
                     }
                 });
             }
