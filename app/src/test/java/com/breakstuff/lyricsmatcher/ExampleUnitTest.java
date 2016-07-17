@@ -1,4 +1,4 @@
-package com.breakstuff.myrestaurants;
+package com.breakstuff.lyricsmatcher;
 
 import org.junit.Test;
 

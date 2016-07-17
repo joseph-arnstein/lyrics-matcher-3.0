@@ -1,9 +1,9 @@
-package com.breakstuff.myrestaurants.ui;
+package com.breakstuff.lyricsmatcher.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.breakstuff.myrestaurants.R;
+import com.breakstuff.lyricsmatcher.R;
 
 public class SongDetailsActivity extends AppCompatActivity {
 

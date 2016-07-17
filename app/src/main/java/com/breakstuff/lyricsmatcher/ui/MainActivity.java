@@ -1,4 +1,4 @@
-package com.breakstuff.myrestaurants.ui;
+package com.breakstuff.lyricsmatcher.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.breakstuff.myrestaurants.R;
+import com.breakstuff.lyricsmatcher.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

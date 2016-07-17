@@ -1,10 +1,10 @@
-package com.breakstuff.myrestaurants;
+package com.breakstuff.lyricsmatcher;
 
 import android.content.Intent;
 import android.os.Build;
 import android.widget.TextView;
 
-import com.breakstuff.myrestaurants.ui.MainActivity;
+import com.breakstuff.lyricsmatcher.ui.MainActivity;
 
 import org.junit.Before;
 import org.junit.Test;

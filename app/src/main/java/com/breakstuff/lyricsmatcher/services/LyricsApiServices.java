@@ -1,10 +1,9 @@
-package com.breakstuff.myrestaurants.services;
+package com.breakstuff.lyricsmatcher.services;
 
-import android.nfc.Tag;
 import android.util.Log;
 
-import com.breakstuff.myrestaurants.Constants;
-import com.breakstuff.myrestaurants.models.Song;
+import com.breakstuff.lyricsmatcher.Constants;
+import com.breakstuff.lyricsmatcher.models.Song;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,8 +18,6 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import se.akerfeldt.okhttp.signpost.OkHttpOAuthConsumer;
-import se.akerfeldt.okhttp.signpost.SigningInterceptor;
 
 /**
  * Created by AlinaAir on 7/6/16.
@@ -75,9 +72,9 @@ public class LyricsApiServices {
 
             }
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e(TAG, "Exception error, JSONException thrown: ", e);
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e(TAG, "Exception error, IOException thrown: ", e);
         }
         return songs;
     }

@@ -1,9 +1,9 @@
-package com.breakstuff.myrestaurants;
+package com.breakstuff.lyricsmatcher;
 
 import android.os.Build;
 import android.widget.ListView;
 
-import com.breakstuff.myrestaurants.ui.MainActivity;
+import com.breakstuff.lyricsmatcher.ui.MainActivity;
 
 import org.junit.Before;
 import org.junit.Test;

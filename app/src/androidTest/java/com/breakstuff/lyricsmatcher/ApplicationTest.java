@@ -1,4 +1,4 @@
-package com.breakstuff.myrestaurants;
+package com.breakstuff.lyricsmatcher;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,8 +1,8 @@
-package com.breakstuff.myrestaurants;
+package com.breakstuff.lyricsmatcher;
 
 import android.support.test.rule.ActivityTestRule;
 
-import com.breakstuff.myrestaurants.ui.MainActivity;
+import com.breakstuff.lyricsmatcher.ui.MainActivity;
 
 import org.junit.Rule;
 import org.junit.Test;

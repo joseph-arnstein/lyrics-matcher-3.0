@@ -1,4 +1,4 @@
-package com.breakstuff.myrestaurants;
+package com.breakstuff.lyricsmatcher;
 
 /**
  * Created by AlinaAir on 7/6/16.

@@ -1,8 +1,10 @@
-package com.breakstuff.myrestaurants.ui;
+package com.breakstuff.lyricsmatcher.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,9 +12,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.breakstuff.myrestaurants.R;
-import com.breakstuff.myrestaurants.models.Song;
-import com.breakstuff.myrestaurants.services.LyricsApiServices;
+import com.breakstuff.lyricsmatcher.R;
+import com.breakstuff.lyricsmatcher.adapters.SongListAdapter;
+import com.breakstuff.lyricsmatcher.models.Song;
+import com.breakstuff.lyricsmatcher.services.LyricsApiServices;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,11 +29,10 @@ import okhttp3.Response;
 
 public class DisplaySongsActivity extends AppCompatActivity {
     public static final String TAG = DisplaySongsActivity.class.getSimpleName();
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 
-    @Bind(R.id.textView)
-    TextView mLocationTextView;
-    @Bind(R.id.listView)
-    ListView mListView;
+    @Bind(R.id.textView) TextView mLocationTextView;
+
 
     public ArrayList<Song> mSongs = new ArrayList<>();
 
@@ -39,17 +41,6 @@ public class DisplaySongsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_songs);
         ButterKnife.bind(this);
-
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, mSongs);
-        mListView.setAdapter(adapter);
-
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String song = ((TextView)view).getText().toString();
-                Toast.makeText(DisplaySongsActivity.this, song, Toast.LENGTH_LONG).show();
-            }
-        });
 
         Intent intent = getIntent();
         String lyrics = intent.getStringExtra("lyrics");
@@ -77,12 +68,12 @@ public class DisplaySongsActivity extends AppCompatActivity {
 
                     @Override
                     public void run() {
-                        String[] songNames = new String[mSongs.size()];
-                        for (int i = 0; i < songNames.length; i++) {
-                            songNames[i] = mSongs.get(i).getSong();
-                        }
-                        ArrayAdapter adapter = new ArrayAdapter(DisplaySongsActivity.this, android.R.layout.simple_list_item_1, songNames);
-                        mListView.setAdapter(adapter);
+                        SongListAdapter mAdapter = new SongListAdapter(getApplicationContext(), mSongs);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager =
+                                new LinearLayoutManager(DisplaySongsActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
                     }
                 });
             }

@@ -1,4 +1,6 @@
-package com.breakstuff.myrestaurants.models;
+package com.breakstuff.lyricsmatcher.models;
+
+import org.parceler.Parcel;
 
 /**
  * Created by AlinaAir on 7/12/16.
@@ -11,6 +13,8 @@ public class Song {
     private String album;
     private String albumImg;
     private String spotifyId;
+
+    public Song() {}
 
     public Song (String song, String band, String album, String albumImg, String spotifyId){
         this.song = song;
