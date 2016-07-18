@@ -59,7 +59,7 @@ public class SongInfoFragment extends Fragment implements View.OnClickListener{
         mSongNameLabel.setText(mSong.getSong());
         mAristLabel.setText(mSong.getBand());
         mAlbumNameLabel.setText(mSong.getAlbum());
-        mSpotifyLink.setText("Search YouTube");
+        mSpotifyLink.setText("Play Song from YouTube");
 
         return view;
     }
