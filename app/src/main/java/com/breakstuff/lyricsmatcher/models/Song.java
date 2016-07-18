@@ -2,10 +2,6 @@ package com.breakstuff.lyricsmatcher.models;
 
 import org.parceler.Parcel;
 
-/**
- * Created by AlinaAir on 7/12/16.
- */
-
 @Parcel
 public class Song {
     String song;
