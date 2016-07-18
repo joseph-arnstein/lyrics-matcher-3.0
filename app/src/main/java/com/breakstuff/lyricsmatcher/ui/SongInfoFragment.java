@@ -10,9 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.breakstuff.lyricsmatcher.Constants;
 import com.breakstuff.lyricsmatcher.R;
 import com.breakstuff.lyricsmatcher.models.Song;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -20,14 +24,16 @@ import org.parceler.Parcels;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+import static com.breakstuff.lyricsmatcher.Constants.FIREBASE_CHILD_SONGS;
+
 public class SongInfoFragment extends Fragment implements View.OnClickListener{
     @Bind(R.id.albumImageView) ImageView mImageLabel;
     @Bind(R.id.songNameTextView) TextView mSongNameLabel;
     @Bind(R.id.artistNameTextView) TextView mAristLabel;
     @Bind(R.id.albumTextView) TextView mAlbumNameLabel;
     @Bind(R.id.spotifyLinkTextView) TextView mSpotifyLink;
-    @Bind(R.id.phoneTextView) TextView mPhoneLabel;
-    @Bind(R.id.addressTextView) TextView mAddressLabel;
+//    @Bind(R.id.phoneTextView) TextView mPhoneLabel;
+//    @Bind(R.id.addressTextView) TextView mAddressLabel;
     @Bind(R.id.saveSongButton) TextView mSaveSongButton;
 
     private Song mSong;
@@ -53,6 +59,7 @@ public class SongInfoFragment extends Fragment implements View.OnClickListener{
         ButterKnife.bind(this, view);
 
         mSpotifyLink.setOnClickListener(this);
+        mSaveSongButton.setOnClickListener(this);
 
         Picasso.with(view.getContext()).load(mSong.getImage()).into(mImageLabel);
 
@@ -70,6 +77,13 @@ public class SongInfoFragment extends Fragment implements View.OnClickListener{
             Intent webIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse("https://www.youtube.com/results?search_query=" + mSong.getSong()));
             startActivity(webIntent);
+        }
+        if (view == mSaveSongButton) {
+            DatabaseReference songRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(FIREBASE_CHILD_SONGS);
+            songRef.push().setValue(mSong);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -8,11 +8,11 @@ import org.parceler.Parcel;
 
 @Parcel
 public class Song {
-    private String song;
-    private String band;
-    private String album;
-    private String albumImg;
-    private String spotifyId;
+    String song;
+    String band;
+    String album;
+    String albumImg;
+    String spotifyId;
 
     public Song() {}
 
@@ -35,7 +35,8 @@ public class Song {
     }
     public String getImage() {
         return albumImg;
-    }    public String getSpotifyId() {
+    }
+    public String getSpotifyId() {
         return spotifyId;
     }
 
