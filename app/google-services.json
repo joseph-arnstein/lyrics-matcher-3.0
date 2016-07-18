@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "583189398338",
+    "firebase_url": "https://lyricsmatcher.firebaseio.com",
+    "project_id": "lyricsmatcher",
+    "storage_bucket": "lyricsmatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:583189398338:android:0ab7f9e72284f23a",
+        "android_client_info": {
+          "package_name": "com.breakstuff.lyricsmatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "583189398338-kvrrcp76jg0m7ubkj2m7o4hfh0q1969j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.breakstuff.lyricsmatcher",
+            "certificate_hash": "DB3BFEC3DEBDC6002ABB67CCC8AE3CFDFE9F71A3"
+          }
+        },
+        {
+          "client_id": "583189398338-m89norbebancc720n63cq6b1ooupp7i2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIbwBzlwS5v6qPWYmPWDQHI6thj8gUZEQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "583189398338-m89norbebancc720n63cq6b1ooupp7i2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
