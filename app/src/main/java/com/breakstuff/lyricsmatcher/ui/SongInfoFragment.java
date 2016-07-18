@@ -11,33 +11,55 @@ import android.widget.TextView;
 
 import com.breakstuff.lyricsmatcher.R;
 import com.breakstuff.lyricsmatcher.models.Song;
+import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class SongInfoFragment extends Fragment {
-    @Bind(R.id.restaurantImageView) ImageView mImageLabel;
-    @Bind(R.id.restaurantNameTextView) TextView mNameLabel;
-    @Bind(R.id.cuisineTextView) TextView mCategoriesLabel;
-    @Bind(R.id.ratingTextView) TextView mRatingLabel;
+    @Bind(R.id.albumImageView) ImageView mImageLabel;
+    @Bind(R.id.songNameTextView) TextView mSongNameLabel;
+    @Bind(R.id.artistNameTextView) TextView mAristLabel;
+    @Bind(R.id.albumTextView) TextView mAlbumNameLabel;
     @Bind(R.id.spotifyLinkTextView) TextView mSpotifyLink;
     @Bind(R.id.phoneTextView) TextView mPhoneLabel;
     @Bind(R.id.addressTextView) TextView mAddressLabel;
-    @Bind(R.id.saveRestaurantButton) TextView mSaveRestaurantButton;
+    @Bind(R.id.saveSongButton) TextView mSaveSongButton;
 
-    private Song song;
-
-
-    public SongInfoFragment() {}
+    private Song mSong;
 
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_song_info, container, false);
+    public static SongInfoFragment newInstance(Song song) {
+        SongInfoFragment songInfoFragment = new SongInfoFragment();
+        Bundle args = new Bundle();
+        args.putParcelable("song", Parcels.wrap(song));
+        songInfoFragment.setArguments(args);
+        return songInfoFragment;
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mSong = Parcels.unwrap(getArguments().getParcelable("song"));
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_song_info, container, false);
+        ButterKnife.bind(this, view);
+
+        Picasso.with(view.getContext()).load(mSong.getImage()).into(mImageLabel);
+
+        mSongNameLabel.setText(mSong.getSong());
+        mAristLabel.setText(mSong.getBand());
+        mAlbumNameLabel.setText(mSong.getAlbum());
+        mSpotifyLink.setText(mSong.getSpotifyId());
+
+        return view;
+    }
 }

@@ -1,6 +1,7 @@
 package com.breakstuff.lyricsmatcher.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,10 @@ import android.widget.TextView;
 
 import com.breakstuff.lyricsmatcher.R;
 import com.breakstuff.lyricsmatcher.models.Song;
+import com.breakstuff.lyricsmatcher.ui.SongDetailsActivity;
+import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -19,7 +24,7 @@ import butterknife.ButterKnife;
 /**
  * Created by AlinaAir on 7/17/16.
  */
-public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.SongViewHolder>{
+public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.SongViewHolder> {
     private ArrayList<Song> mSongsArray = new ArrayList<>();
     private Context mContext;
 
@@ -45,7 +50,7 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.SongVi
         return mSongsArray.size();
     }
 
-    public class SongViewHolder extends RecyclerView.ViewHolder {
+    public class SongViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.albumImageView) ImageView mAlbumImageView;
         @Bind(R.id.songNameTextView) TextView mSongNameTextView;
         @Bind(R.id.artistNameTextView) TextView mArtistTextView;
@@ -57,12 +62,23 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.SongVi
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
         }
 
         public void bindSong(Song song) {
             mSongNameTextView.setText(song.getSong());
             mArtistTextView.setText(song.getBand());
             mAlbumTextView.setText(song.getAlbum());
+            Picasso.with(mContext).load(song.getImage()).into(mAlbumImageView);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, SongDetailsActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("songs", Parcels.wrap(mSongsArray));
+            mContext.startActivity(intent);
         }
     }
 }
