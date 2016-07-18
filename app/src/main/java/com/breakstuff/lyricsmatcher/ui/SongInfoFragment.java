@@ -1,6 +1,8 @@
 package com.breakstuff.lyricsmatcher.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,10 +20,7 @@ import org.parceler.Parcels;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class SongInfoFragment extends Fragment {
+public class SongInfoFragment extends Fragment implements View.OnClickListener{
     @Bind(R.id.albumImageView) ImageView mImageLabel;
     @Bind(R.id.songNameTextView) TextView mSongNameLabel;
     @Bind(R.id.artistNameTextView) TextView mAristLabel;
@@ -53,13 +52,24 @@ public class SongInfoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_song_info, container, false);
         ButterKnife.bind(this, view);
 
+        mSpotifyLink.setOnClickListener(this);
+
         Picasso.with(view.getContext()).load(mSong.getImage()).into(mImageLabel);
 
         mSongNameLabel.setText(mSong.getSong());
         mAristLabel.setText(mSong.getBand());
         mAlbumNameLabel.setText(mSong.getAlbum());
-        mSpotifyLink.setText(mSong.getSpotifyId());
+        mSpotifyLink.setText("Search YouTube");
 
         return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mSpotifyLink) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://www.youtube.com/results?search_query=" + mSong.getSong()));
+            startActivity(webIntent);
+        }
     }
 }
