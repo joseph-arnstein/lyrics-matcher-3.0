@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,7 +35,7 @@ public class SongInfoFragment extends Fragment implements View.OnClickListener{
     @Bind(R.id.spotifyLinkTextView) TextView mSpotifyLink;
 //    @Bind(R.id.phoneTextView) TextView mPhoneLabel;
 //    @Bind(R.id.addressTextView) TextView mAddressLabel;
-    @Bind(R.id.saveSongButton) TextView mSaveSongButton;
+    @Bind(R.id.saveSongButton) Button mSaveSongButton;
 
     private Song mSong;
 

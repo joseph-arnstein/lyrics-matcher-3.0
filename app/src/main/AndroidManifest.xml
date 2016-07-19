@@ -11,15 +11,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.MainActivity">
+
+        </activity>
+        <activity android:name=".ui.DisplaySongsActivity" />
+        <activity android:name=".ui.SongDetailsActivity" />
+        <activity android:name=".ui.SavedSongListActivity" />
+        <activity android:name=".ui.CreateAccountActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.DisplaySongsActivity" />
-        <activity android:name=".ui.SongDetailsActivity" />
-        <activity android:name=".ui.SavedSongListActivity"></activity>
+        <activity android:name=".ui.LoginActivity">
+        </activity>
     </application>
 
 </manifest>

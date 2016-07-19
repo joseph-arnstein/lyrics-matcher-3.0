@@ -26,6 +26,7 @@ import java.util.ArrayList;
 public class FirebaseSongsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     View mView;
     Context mContext;
+    ImageView mAlbumImageView;
 
     public FirebaseSongsViewHolder(View itemView) {
         super(itemView);
@@ -34,14 +35,15 @@ public class FirebaseSongsViewHolder extends RecyclerView.ViewHolder implements 
         itemView.setOnClickListener(this);
     }
     public void bindSong(Song song) {
-        ImageView albumImageView = (ImageView) mView.findViewById(R.id.albumImageView);
+        mAlbumImageView = (ImageView) mView.findViewById(R.id.albumImageView);
         TextView songNameTextView = (TextView) mView.findViewById(R.id.songNameTextView);
         TextView albumNameTextView = (TextView) mView.findViewById(R.id.albumTextView);
         TextView artistNameTextView = (TextView) mView.findViewById(R.id.artistNameTextView);
 
+
         Picasso.with(mContext)
                 .load(song.getImage())
-                .into(albumImageView);
+                .into(mAlbumImageView);
 
 
         songNameTextView.setText(song.getSong());
