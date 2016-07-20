@@ -62,9 +62,14 @@ public class LyricsApiServices {
                     String songName = songsJSON.getJSONObject("track").getString("track_name");
                     String bandName = songsJSON.getJSONObject("track").getString("artist_name");
                     String albumName = songsJSON.getJSONObject("track").getString("album_name");
-                    String albumImg = songsJSON.getJSONObject("track").getString("album_coverart_100x100");
+                    String albumImg = songsJSON.getJSONObject("track").getString("album_coverart_500x500");
+                    if (albumImg.equals("")){
+                        albumImg = songsJSON.getJSONObject("track").getString("album_coverart_350x350");
+                    }
+                    if (albumImg.equals("")){
+                        albumImg = songsJSON.getJSONObject("track").getString("album_coverart_100x100");
+                    }
                     String spotifyId = songsJSON.getJSONObject("track").getString("track_spotify_id");
-
 
                     Song song = new Song(songName, bandName, albumName, albumImg, spotifyId);
                     songs.add(song);
