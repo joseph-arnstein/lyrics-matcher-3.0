@@ -9,6 +9,7 @@ public class Song {
     String album;
     String albumImg;
     String spotifyId;
+    String pushId;
 
     public Song() {}
 
@@ -35,5 +36,15 @@ public class Song {
     public String getSpotifyId() {
         return spotifyId;
     }
+    public String getAlbumImg() {
+        return albumImg;
+    }
 
+    public String getPushId(){
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
 }

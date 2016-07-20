@@ -14,6 +14,8 @@ import com.breakstuff.lyricsmatcher.models.Song;
 import com.breakstuff.lyricsmatcher.uitl.OnStartDragListener;
 import com.breakstuff.lyricsmatcher.uitl.SimpleItemTouchHelperCallback;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,13 +35,18 @@ public class SavedSongListActivity extends AppCompatActivity implements OnStartD
         setContentView(R.layout.activity_display_songs);
         ButterKnife.bind(this);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        mSongReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SONGS).child(uid);
+
         //mSongReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SONGS);
         setUpFirebaseAdapter();
     }
 
     private void setUpFirebaseAdapter() {
 
-        mSongReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SONGS);
+       // mSongReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SONGS);
 
 //        mFirebaseAdapter = new FirebaseRecyclerAdapter<Song, FirebaseSongsViewHolder>
 //                (Song.class, R.layout.song_list_item, FirebaseSongsViewHolder.class,
