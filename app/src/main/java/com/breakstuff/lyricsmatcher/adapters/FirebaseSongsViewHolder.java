@@ -12,6 +12,8 @@ import com.breakstuff.lyricsmatcher.Constants;
 import com.breakstuff.lyricsmatcher.R;
 import com.breakstuff.lyricsmatcher.models.Song;
 import com.breakstuff.lyricsmatcher.ui.SongDetailsActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +26,7 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 
 public class FirebaseSongsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
     View mView;
     Context mContext;
     ImageView mAlbumImageView;
@@ -54,7 +57,9 @@ public class FirebaseSongsViewHolder extends RecyclerView.ViewHolder implements 
     @Override
     public void onClick(View view) {
         final ArrayList<Song> songs = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SONGS);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SONGS).child(uid);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
@@ -66,7 +71,7 @@ public class FirebaseSongsViewHolder extends RecyclerView.ViewHolder implements 
                 int itemPosition = getLayoutPosition();
 
                 Intent intent = new Intent(mContext, SongDetailsActivity.class);
-                intent.putExtra("position", itemPosition + "");
+                intent.putExtra("position", itemPosition);
                 intent.putExtra("songs", Parcels.wrap(songs));
 
                 mContext.startActivity(intent);

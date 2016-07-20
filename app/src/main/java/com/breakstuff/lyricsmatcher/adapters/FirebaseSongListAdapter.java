@@ -32,7 +32,9 @@ public class FirebaseSongListAdapter extends FirebaseRecyclerAdapter<Song, Fireb
 
     @Override
     protected void populateViewHolder(final FirebaseSongsViewHolder viewHolder, Song model, int position) {
+
         viewHolder.bindSong(model);
+
         viewHolder.mAlbumImageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {

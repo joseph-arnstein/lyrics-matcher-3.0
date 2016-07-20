@@ -21,10 +21,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    @Bind(R.id.findSongButton) Button mFindSongButton;
+    @Bind(R.id.newSearchButton) Button mFindSongButton;
     @Bind(R.id.editText) EditText mEditText;
     @Bind(R.id.appNameTextView) TextView mAppNameTextView;
-    @Bind(R.id.savedSongsButton) Button mFirebaseButton;
+    @Bind(R.id.newSavedButton) Button mFirebaseButton;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;

@@ -10,72 +10,84 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/imageView"
-        android:src="@drawable/background"
+        android:src="@drawable/vinyl"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="The more lyrics you know, the more accurate Find That Song will be!"
         android:id="@+id/textViewInstructions"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:textIsSelectable="true"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textColor="@color/colorTextIcons"
+        android:paddingTop="15dp"
+        android:layout_marginBottom="20dp"
+        android:layout_alignRight="@+id/appNameTextView"
+        android:layout_alignEnd="@+id/appNameTextView"
+        android:layout_below="@+id/appNameTextView"
+        android:layout_alignLeft="@+id/appNameTextView"
+        android:layout_alignStart="@+id/appNameTextView" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Find That Song"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
         android:textColor="@color/colorTextIcons"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:id="@+id/appNameTextView"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Find Thats Song"
-        android:id="@+id/findSongButton"
-        android:layout_above="@+id/savedSongsButton"
-        android:background="@color/colorAccent"
-        android:textColor="@color/colorTextIcons"
-        android:visibility="visible"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp"  />
+        android:id="@+id/appNameTextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="20dp"
+        android:layout_margin="20dp" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_above="@+id/findSongButton"
-        android:layout_centerHorizontal="true"
-        android:hint="enter lyrics of song"
-        android:background="@color/background_floating_material_light"
-        android:padding="5dp"
-        android:layout_marginBottom="10dp" />
-
-    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Go to Saved Songs"
-        android:id="@+id/savedSongsButton"
-        android:background="@color/colorAccent"
-        android:textColor="@color/colorTextIcons"
-        android:visibility="visible"
+        android:id="@+id/editText"
+        android:hint="enter lyrics of song"
+        android:background="#80ffffff"
+        android:padding="5dp"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="20dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search Lyrics"
+            android:id="@+id/newSearchButton"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorAccentOpaque"
+            android:layout_margin="10dp"
+            android:textColor="@color/colorTextIcons" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Browse Saved"
+            android:id="@+id/newSavedButton"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorAccentOpaque"
+            android:layout_margin="10dp"
+            android:textColor="@color/colorTextIcons" />
+    </LinearLayout>
 
 
 </RelativeLayout>
