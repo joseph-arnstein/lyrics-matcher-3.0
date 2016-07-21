@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.breakstuff.lyricsmatcher.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -84,6 +85,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (id == R.id.action_logout) {
             logout();
             return true;
+        }
+        if (id == R.id.action_home) {
+            Toast.makeText(MainActivity.this, "You're already home my good man.",
+                    Toast.LENGTH_SHORT).show();
+        }
+        if (id == R.id.action_my_songs){
+            Intent intent = new Intent(MainActivity.this, SavedSongListActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

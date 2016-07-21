@@ -5,4 +5,15 @@
         android:title="Logout"
         android:visible="true"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_home"
+        android:title="Home"
+        android:visible="true"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_my_songs"
+        android:title="My Songs"
+        android:visible="true"
+        app:showAsAction="never" />
 </menu>
