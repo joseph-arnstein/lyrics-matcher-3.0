@@ -24,7 +24,7 @@ import okhttp3.Response;
  */
 public class LyricsApiServices {
 
-    public static void findSong(String song, Callback callback) {
+    public static void findSong(String song, String filter, Callback callback) {
         String TAG = "LyricsApiServices";
         String api = "apikey";
         Log.v(TAG, song);
@@ -34,6 +34,7 @@ public class LyricsApiServices {
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.LYRICS_BASE_URL).newBuilder();
         urlBuilder.setQueryParameter(Constants.LYRICS_QUERY_PARAMETER, song);
         urlBuilder.addQueryParameter(api, Constants.LYRICS_API_KEY);
+        urlBuilder.addQueryParameter(filter, Constants.SORT_BY_PARAM);
         String url = urlBuilder.build().toString();
         Log.v(TAG, url);
 

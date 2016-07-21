@@ -21,22 +21,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="The more lyrics you know, the more accurate Find That Song will be!"
-        android:id="@+id/textViewInstructions"
-        android:textSize="20dp"
-        android:textIsSelectable="true"
-        android:textColor="@color/colorTextIcons"
-        android:paddingTop="15dp"
-        android:layout_marginBottom="20dp"
-        android:layout_alignRight="@+id/appNameTextView"
-        android:layout_alignEnd="@+id/appNameTextView"
-        android:layout_below="@+id/appNameTextView"
-        android:layout_alignLeft="@+id/appNameTextView"
-        android:layout_alignStart="@+id/appNameTextView" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="Find That Song"
         android:textColor="@color/colorTextIcons"
         android:textSize="40sp"
@@ -54,24 +38,35 @@
         android:hint="enter lyrics of song"
         android:background="#80ffffff"
         android:padding="5dp"
-        android:layout_above="@+id/linearLayout2"
+        android:layout_above="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_margin="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Search by . . ."
+        android:id="@+id/textView2"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="15dp" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout2"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/newSavedButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Search Lyrics"
+            android:text="Song Popularity"
             android:id="@+id/newSearchButton"
             android:layout_weight="1"
             android:backgroundTint="@color/colorAccentOpaque"
@@ -81,13 +76,39 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Browse Saved"
-            android:id="@+id/newSavedButton"
+            android:text="Date Released"
+            android:id="@+id/filterByDateButton"
             android:layout_weight="1"
             android:backgroundTint="@color/colorAccentOpaque"
             android:layout_margin="10dp"
-            android:textColor="@color/colorTextIcons" />
+            android:textColor="@color/colorTextIcons"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Artist Popularity"
+            android:id="@+id/filterByArtistbutton"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorAccentOpaque"
+            android:layout_margin="10dp"
+            android:textColor="@color/colorTextIcons"/>
+
     </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Browse Saved"
+        android:id="@+id/newSavedButton"
+        android:layout_weight="1"
+        android:backgroundTint="@color/colorPrimaryLightOpaque"
+        android:textColor="@color/colorTextIcons"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" />
 
 
 </RelativeLayout>

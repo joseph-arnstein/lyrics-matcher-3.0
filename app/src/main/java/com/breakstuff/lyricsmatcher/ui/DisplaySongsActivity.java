@@ -48,10 +48,11 @@ public class DisplaySongsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String lyrics = intent.getStringExtra("lyrics");
+        String filter = intent.getStringExtra("filter");
 
         mLocationTextView.setText("Showing results for lyrics: " + lyrics);
 
-        getSongs(lyrics);
+        getSongs(lyrics, filter);
     }
 
     @Override
@@ -91,9 +92,9 @@ public class DisplaySongsActivity extends AppCompatActivity {
         finish();
     }
 
-    private void getSongs(String lyrics) {
+    private void getSongs(String lyrics, String filter) {
         final LyricsApiServices lyricsApiServices = new LyricsApiServices();
-        lyricsApiServices.findSong(lyrics, new Callback() {
+        lyricsApiServices.findSong(lyrics, filter, new Callback() {
 
             @Override
             public void onFailure(Call call, IOException e) {

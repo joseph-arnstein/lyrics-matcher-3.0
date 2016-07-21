@@ -22,10 +22,15 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    @Bind(R.id.newSearchButton) Button mFindSongButton;
+    @Bind(R.id.newSearchButton) Button mFindSongBySongPopButton;
+    @Bind(R.id.filterByDateButton) Button mFindSongByDateButton;
+    @Bind(R.id.filterByArtistbutton) Button mFindSongByArtistButton;
+    
     @Bind(R.id.editText) EditText mEditText;
     @Bind(R.id.appNameTextView) TextView mAppNameTextView;
     @Bind(R.id.newSavedButton) Button mFirebaseButton;
+
+    private String mFilter;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -53,7 +58,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Typeface ostrichFont = Typeface.createFromAsset(getAssets(), "fonts/ostrich-sans/ostrich-regular.ttf");
         mAppNameTextView.setTypeface(ostrichFont);
 
-        mFindSongButton.setOnClickListener(this);
+        mFindSongBySongPopButton.setOnClickListener(this);
+        mFindSongByArtistButton.setOnClickListener(this);
+        mFindSongByDateButton.setOnClickListener(this);
+
         mFirebaseButton.setOnClickListener(this);
 
         }
@@ -98,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
-    private void logout() {
+    protected void logout() {
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -109,12 +117,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
-        if (v == mFindSongButton) {
+        if (v == mFindSongBySongPopButton) {
+            mFilter = "s_track_rating";
             String lyrics = mEditText.getText().toString();
             Intent intent = new Intent(MainActivity.this, DisplaySongsActivity.class);
             intent.putExtra("lyrics", lyrics);
+            intent.putExtra("filter", mFilter);
             startActivity(intent);
         }
+        if (v == mFindSongByDateButton) {
+            mFilter = "s_track_release_date";
+            String lyrics = mEditText.getText().toString();
+            Intent intent = new Intent(MainActivity.this, DisplaySongsActivity.class);
+            intent.putExtra("lyrics", lyrics);
+            intent.putExtra("filter", mFilter);
+            startActivity(intent);
+        }
+        if (v == mFindSongByArtistButton) {
+            mFilter = "s_artist_rating";
+            String lyrics = mEditText.getText().toString();
+            Intent intent = new Intent(MainActivity.this, DisplaySongsActivity.class);
+            intent.putExtra("lyrics", lyrics);
+            intent.putExtra("filter", mFilter);
+            startActivity(intent);
+        }
+
         if (v == mFirebaseButton) {
             Intent intent = new Intent(MainActivity.this, SavedSongListActivity.class);
             startActivity(intent);

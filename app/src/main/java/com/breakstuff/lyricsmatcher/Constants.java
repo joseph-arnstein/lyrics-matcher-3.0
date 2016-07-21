@@ -8,4 +8,5 @@ public class Constants {
     public static final String LYRICS_API_KEY = BuildConfig.LYRICS_API_KEY;
     public static final String LYRICS_QUERY_PARAMETER = "q_lyrics";
     public static final String FIREBASE_CHILD_SONGS = "songs";
+    public static final String SORT_BY_PARAM = "DESC";
 }
