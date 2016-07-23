@@ -54,6 +54,7 @@ public class SongInfoFragment extends Fragment implements View.OnClickListener{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mSong = Parcels.unwrap(getArguments().getParcelable("song"));
+
     }
 
 
@@ -78,9 +79,14 @@ public class SongInfoFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         if (view == mSpotifyLink) {
-            Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://www.youtube.com/results?search_query=" + mSong.getSong()));
-            startActivity(webIntent);
+//            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+//                    Uri.parse("https://www.youtube.com/results?search_query=" + mSong.getSong()));
+//            startActivity(webIntent);
+            String spotifyId = mSong.getSpotifyId();
+            Intent intent = new Intent(getContext(), SpotifyActivity.class);
+            intent.putExtra("spotifyId", spotifyId);
+            startActivity(intent);
+//
         }
         if (view == mSaveSongButton) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

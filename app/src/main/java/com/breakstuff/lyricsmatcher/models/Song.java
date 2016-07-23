@@ -10,15 +10,17 @@ public class Song {
     String albumImg;
     String spotifyId;
     String pushId;
+    String lookUpLyricsUrl;
 
     public Song() {}
 
-    public Song (String song, String band, String album, String albumImg, String spotifyId){
+    public Song (String song, String band, String album, String albumImg, String spotifyId, String lookUpLyricsUrl){
         this.song = song;
         this.band = band;
         this.album = album;
         this.albumImg = albumImg;
         this.spotifyId = spotifyId;
+        this.lookUpLyricsUrl = lookUpLyricsUrl;
     }
 
     public String getSong() {
@@ -38,6 +40,10 @@ public class Song {
     }
     public String getAlbumImg() {
         return albumImg;
+    }
+
+    public String getLookUpLyricsUrl() {
+        return lookUpLyricsUrl;
     }
 
     public String getPushId(){

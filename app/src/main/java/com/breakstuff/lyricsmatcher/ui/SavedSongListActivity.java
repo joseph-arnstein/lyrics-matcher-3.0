@@ -88,20 +88,7 @@ public class SavedSongListActivity extends AppCompatActivity implements OnStartD
 
     private void setUpFirebaseAdapter() {
 
-       // mSongReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SONGS);
-
-//        mFirebaseAdapter = new FirebaseRecyclerAdapter<Song, FirebaseSongsViewHolder>
-//                (Song.class, R.layout.song_list_item, FirebaseSongsViewHolder.class,
-//                        mSongReference) {
-//
-//            @Override
-//            protected void populateViewHolder(FirebaseSongsViewHolder viewHolder,
-//                                              Song model, int position) {
-//                viewHolder.bindSong(model);
-//            }
-//        };
         mFirebaseAdapter = new FirebaseSongListAdapter(Song.class, R.layout.song_list_item, FirebaseSongsViewHolder.class, mSongReference, this, this);
-
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));

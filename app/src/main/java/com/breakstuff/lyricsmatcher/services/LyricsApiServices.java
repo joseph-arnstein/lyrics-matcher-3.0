@@ -71,8 +71,9 @@ public class LyricsApiServices {
                         albumImg = songsJSON.getJSONObject("track").getString("album_coverart_100x100");
                     }
                     String spotifyId = songsJSON.getJSONObject("track").getString("track_spotify_id");
+                    String lookUpLyricsUrl = songsJSON.getJSONObject("track").getString("track_share_url");
 
-                    Song song = new Song(songName, bandName, albumName, albumImg, spotifyId);
+                    Song song = new Song(songName, bandName, albumName, albumImg, spotifyId, lookUpLyricsUrl);
                     songs.add(song);
                 }
 
