@@ -6,9 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.breakstuff.lyricsmatcher.R;
+import com.breakstuff.lyricsmatcher.models.Song;
 import com.spotify.sdk.android.player.Spotify;
 import com.spotify.sdk.android.authentication.AuthenticationClient;
 import com.spotify.sdk.android.authentication.AuthenticationRequest;
@@ -18,9 +20,20 @@ import com.spotify.sdk.android.player.ConnectionStateCallback;
 import com.spotify.sdk.android.player.Player;
 import com.spotify.sdk.android.player.PlayerNotificationCallback;
 import com.spotify.sdk.android.player.PlayerState;
+import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class SpotifyActivity extends Activity implements PlayerNotificationCallback, ConnectionStateCallback {
     public static final String TAG = SongDetailsActivity.class.getSimpleName();
+
+    @Bind(R.id.albumImageView) ImageView mImageLabel;
+    @Bind(R.id.songNameTextView) TextView mSongNameLabel;
+    @Bind(R.id.artistNameTextView) TextView mAristLabel;
+    @Bind(R.id.albumTextView) TextView mAlbumNameLabel;
 
     private TextView mHelloWorld;
 
@@ -35,18 +48,27 @@ public class SpotifyActivity extends Activity implements PlayerNotificationCallb
 
     private Player mPlayer;
     private String spotifyCall;
+    private Song mSong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spotify);
 
-        Intent intent = getIntent();
-        String spotifyId = intent.getStringExtra("spotifyId");
-        spotifyCall="spotify:track:"+spotifyId;
-        Log.e(TAG, spotifyCall.toString());
+        mSong = Parcels.unwrap(getIntent().getParcelableExtra("song"));
+        ButterKnife.bind(this);
 
-        mHelloWorld = (TextView) findViewById(R.id.helloWorld);
+        Picasso.with(this).load(mSong.getImage()).into(mImageLabel);
+
+        mSongNameLabel.setText(mSong.getSong());
+        mAristLabel.setText(mSong.getBand());
+        mAlbumNameLabel.setText(mSong.getAlbum());
+
+        String spotifyId = mSong.getSpotifyId();
+
+
+        spotifyCall="spotify:track:"+spotifyId;
+        Log.e(TAG, spotifyCall);
 
         AuthenticationRequest.Builder builder =
                 new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
@@ -55,12 +77,6 @@ public class SpotifyActivity extends Activity implements PlayerNotificationCallb
 
         AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request);
 
-        mHelloWorld.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mPlayer.pause();
-            }
-        });
     }
 
     @Override

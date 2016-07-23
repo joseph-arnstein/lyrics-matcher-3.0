@@ -10,62 +10,60 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimary">
+            <!--<LinearLayout-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/linearLayout2"-->
+                <!--android:layout_above="@+id/newSavedButton"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--android:layout_alignParentStart="true">-->
+
+                <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/youTubeButton"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text=""-->
+                    <!--android:drawable="@drawable/youtube"-->
+                    <!--android:drawablePadding="4dp"-->
+                    <!--android:textSize="20dp"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:backgroundTint="@color/colorAccentOpaque"-->
+                    <!--android:layout_margin="1dp"-->
+                    <!--android:textColor="@color/colorTextIcons"-->
+                    <!--/>-->
+
+                <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text=""-->
+                    <!--android:drawable="@drawable/spotify_icon"-->
+                    <!--android:drawablePadding="4dp"-->
+                    <!--android:id="@+id/spotifyButton"-->
+                    <!--android:textSize="20dp"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:backgroundTint="@color/colorAccentOpaque"-->
+                    <!--android:layout_margin="1dp"-->
+                    <!--android:textColor="@color/colorTextIcons"/>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<ImageView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="240dp"-->
+                <!--android:id="@+id/albumImageView"-->
+                <!--android:src="@drawable/mario"-->
+                <!--android:scaleType="centerCrop" />-->
+
+
             <LinearLayout
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/linearLayout2"
-                android:layout_above="@+id/newSavedButton"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/youTubeButton"
-                    android:layout_weight="1"
-                    android:text="Play in YouTube"
-                    android:drawableLeft="@drawable/youtube"
-                    android:drawablePadding="4dp"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:backgroundTint="@color/colorAccentOpaque"
-                    android:layout_margin="1dp"
-                    android:textColor="@color/colorTextIcons"
-                    />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Play from Spotify"
-                    android:drawableLeft="@drawable/spotify_icon"
-                    android:drawablePadding="4dp"
-                    android:id="@+id/spotifyButton"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/colorAccentOpaque"
-                    android:layout_margin="1dp"
-                    android:textColor="@color/colorTextIcons"/>
-
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:id="@+id/albumImageView"
-                android:src="@drawable/mario"
-                android:scaleType="centerCrop" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:paddingTop="20dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="20dp">
-
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/white">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -75,8 +73,9 @@
                     android:layout_alignParentStart="true"
                     android:textSize="20sp"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold" />
-
+                    android:textStyle="bold"
+                    android:layout_margin="4dp"
+                    android:layout_gravity="center_horizontal" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -86,7 +85,8 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:textColor="@color/colorAccent"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -97,7 +97,32 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:textColor="@color/colorSecondaryText"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    android:layout_margin="3dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="1dp" />
+            </LinearLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:paddingTop="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="20dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"
+                    android:id="@+id/albumImageView"
+                    android:src="@drawable/mario"
+                    android:scaleType="centerCrop" />
+
+
+
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -121,7 +146,7 @@
                         android:layout_height="wrap_content"
                         android:text="Hear it now"
                         android:id="@+id/spotifyLinkTextView"
-                        android:drawableLeft="@drawable/youtube"
+                        android:drawableLeft="@drawable/spotify_icon"
                         android:drawablePadding="4dp"
                         android:textColor="@color/colorTextIcons"
                         android:textSize="20dp"
@@ -132,10 +157,22 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Play from Spotify"
-                        android:drawableLeft="@drawable/spotify_icon"
+                        android:text="Open in YouTube"
+                        android:drawableLeft="@drawable/youtube"
                         android:drawablePadding="4dp"
-                        android:id="@+id/addressTextView"
+                        android:id="@+id/youTubeLinkTextView"
+                        android:textColor="@color/colorTextIcons"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center_vertical"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Save this song"
+                        android:drawableLeft="@drawable/ic_cloud_white_24dp"
+                        android:drawablePadding="4dp"
+                        android:id="@+id/saveSongTextView"
                         android:textColor="@color/colorTextIcons"
                         android:textSize="20dp"
                         android:textStyle="bold"
@@ -145,15 +182,15 @@
                 </LinearLayout>
 
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Save Song"
-                    android:id="@+id/saveSongButton"
-                    android:layout_alignParentBottom="true"
-                    android:background="@color/colorAccent"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="15sp" />
+                <!--<Button-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Save Song"-->
+                    <!--android:id="@+id/saveSongButton"-->
+                    <!--android:layout_alignParentBottom="true"-->
+                    <!--android:background="@color/colorAccent"-->
+                    <!--android:textColor="@color/colorPrimaryDark"-->
+                    <!--android:textSize="15sp" />-->
             </RelativeLayout>
         </LinearLayout>
     </FrameLayout>
