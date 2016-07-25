@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Stand-In-Api-Lyrics.iml" filepath="$PROJECT_DIR$/Stand-In-Api-Lyrics.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/lyrics-matcher-3.0.iml" filepath="$PROJECT_DIR$/lyrics-matcher-3.0.iml" />
     </modules>
