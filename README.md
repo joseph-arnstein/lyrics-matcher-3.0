@@ -10,6 +10,7 @@ Lyrics-Matcher is a project from the Epicodus Android course designed as a learn
 
  * clone repo
  * open project in Android Studio to run in emulator
+ * have your Spotify account information handy for loginning in, or create an account with spotify when prompted.
 
 ## Technologies Used
 
