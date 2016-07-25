@@ -78,8 +78,7 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.SongVi
 
             Intent intent = new Intent(mContext, SongDetailsActivity.class);
             intent.putExtra("position", itemPosition);
-            intent.putExtra("songs", Parcels.wrap(mSongsArray));
-
+            intent.putExtra("songs", Parcels.wrap(mSongsArray));git pus
             mContext.startActivity(intent);
         }
     }

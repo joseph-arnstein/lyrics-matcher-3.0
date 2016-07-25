@@ -1,10 +1,10 @@
-# My-Resturaunts
+# Lyrics-Matcher
 #### Android app developed as practice for Epicodus code school
 #### by Joseph Arnstein
 
 ## description
 
-MyResturaunts is a project from the Epicodus Android course designed as a learning tool developed over the course of the 5-week class by the author with instruction from Epicodus course insructors and contributions from various peers.
+Lyrics-Matcher is a project from the Epicodus Android course designed as a learning tool developed over the course of the 5-week class by the author. Enter lyrics of a song into search to find song name, artist, and album. Save songs to a database.
 
 ## Installation Instructions
 
@@ -18,6 +18,12 @@ MyResturaunts is a project from the Epicodus Android course designed as a learni
 * Gradle
 * Espresso
 * Robolectric
+ 
+## Known Bugs
+
+*Gradle build throws error messages.
+ One message states that MainActivity can't bind, and on occasion says it has crashed, but seems to run fine.
+
 
 ## License
 
