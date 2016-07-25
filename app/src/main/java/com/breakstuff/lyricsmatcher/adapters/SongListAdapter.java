@@ -21,9 +21,6 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-/**
- * Created by AlinaAir on 7/17/16.
- */
 public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.SongViewHolder> {
     private ArrayList<Song> mSongsArray = new ArrayList<>();
     private Context mContext;

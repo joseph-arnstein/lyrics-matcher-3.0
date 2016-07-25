@@ -22,9 +22,6 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- * Created by AlinaAir on 7/18/16.
- */
 public class FirebaseSongListAdapter extends FirebaseRecyclerAdapter<Song, FirebaseSongsViewHolder> implements ItemTouchHelperAdapter {
 
     private DatabaseReference mRef;

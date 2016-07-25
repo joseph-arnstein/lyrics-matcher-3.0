@@ -153,6 +153,7 @@ public class SpotifyActivity extends Activity implements PlayerNotificationCallb
     @Override
     protected void onDestroy() {
         // VERY IMPORTANT! This must always be called or else you will leak resources
+        // // TODO: 7/24/16 : Don't destroy play when leave this activty, but make sure to destroy and recreate from everywhere in the app. App will break if multiple calls are made.
         Spotify.destroyPlayer(this);
         super.onDestroy();
     }

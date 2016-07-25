@@ -44,8 +44,6 @@ public class SongInfoFragment extends Fragment implements View.OnClickListener{
     @Bind(R.id.artistNameTextView) TextView mAristLabel;
     @Bind(R.id.albumTextView) TextView mAlbumNameLabel;
     @Bind(R.id.spotifyLinkTextView) TextView mSpotifyLink;
-//    @Bind(R.id.phoneTextView) TextView mPhoneLabel;
-//    @Bind(R.id.addressTextView) TextView mAddressLabel;
     @Bind(R.id.saveSongTextView) TextView mSaveSongText;
     @Bind(R.id.youTubeLinkTextView) TextView mYouTube;
 
@@ -90,12 +88,7 @@ public class SongInfoFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         if (view == mSpotifyLink) {
-//            Intent webIntent = new Intent(Intent.ACTION_VIEW,
-//                    Uri.parse("https://www.youtube.com/results?search_query=" + mSong.getSong()));
-//            startActivity(webIntent);
 
-//
-//            String spotifyId = mSong.getSpotifyId();
             Intent intent = new Intent(getContext(), SpotifyActivity.class);
             intent.putExtra("song", Parcels.wrap(mSong));
             startActivity(intent);
@@ -103,7 +96,7 @@ public class SongInfoFragment extends Fragment implements View.OnClickListener{
 
         }
         if (view == mYouTube){
-            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/results?search_query=" + mSong.getSong()));
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/results?search_query=" + mSong.getSong()+"%20"+ mSong.getBand()));
             startActivity(webIntent);
         }
         if (view == mSaveSongText) {

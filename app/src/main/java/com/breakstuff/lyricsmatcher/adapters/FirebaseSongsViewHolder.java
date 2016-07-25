@@ -35,7 +35,6 @@ public class FirebaseSongsViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        //itemView.setOnClickListener(this);
     }
     public void bindSong(Song song) {
         mAlbumImageView = (ImageView) mView.findViewById(R.id.albumImageView);
@@ -54,33 +53,4 @@ public class FirebaseSongsViewHolder extends RecyclerView.ViewHolder {
         artistNameTextView.setText(song.getBand());
     }
 
-//    @Override
-//    public void onClick(View view) {
-//        final ArrayList<Song> songs = new ArrayList<>();
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        String uid = user.getUid();
-//        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SONGS).child(uid);
-//        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-//
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    songs.add(snapshot.getValue(Song.class));
-//                }
-//
-//                int itemPosition = getLayoutPosition();
-//
-//                Intent intent = new Intent(mContext, SongDetailsActivity.class);
-//                intent.putExtra("position", itemPosition);
-//                intent.putExtra("songs", Parcels.wrap(songs));
-//
-//                mContext.startActivity(intent);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                Log.e("Database Error: ", databaseError.toString());
-//            }
-//        });
-//    }
 }

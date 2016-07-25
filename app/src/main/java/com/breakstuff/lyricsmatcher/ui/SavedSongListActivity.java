@@ -40,12 +40,6 @@ public class SavedSongListActivity extends AppCompatActivity implements OnStartD
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_songs);
         ButterKnife.bind(this);
-
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        String uid = user.getUid();
-//
-//        mSongReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SONGS).child(uid);
-
         setUpFirebaseAdapter();
     }
 
@@ -87,23 +81,11 @@ public class SavedSongListActivity extends AppCompatActivity implements OnStartD
     }
 
     private void setUpFirebaseAdapter() {
-//
-//        mFirebaseAdapter = new FirebaseSongListAdapter(Song.class, R.layout.song_list_item, FirebaseSongsViewHolder.class, mSongReference, this, this);
-//
-//        mRecyclerView.setHasFixedSize(true);
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        mRecyclerView.setAdapter(mFirebaseAdapter);
-//
-//        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
-//        mTouchHelper = new ItemTouchHelper(callback);
-//        mTouchHelper.attachToRecyclerView(mRecyclerView);
+
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
 
-//        mSongReference = FirebaseDatabase
-//                .getInstance()
-//                .getReference(Constants.FIREBASE_CHILD_SONGS)
-//                .child(uid);
         Query query = FirebaseDatabase.getInstance()
                 .getReference(Constants.FIREBASE_CHILD_SONGS)
                 .child(uid)
