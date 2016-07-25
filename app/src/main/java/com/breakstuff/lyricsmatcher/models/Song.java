@@ -12,6 +12,8 @@ public class Song {
     String pushId;
     String lookUpLyricsUrl;
 
+    String index;
+
     public Song() {}
 
     public Song (String song, String band, String album, String albumImg, String spotifyId, String lookUpLyricsUrl){
@@ -21,6 +23,7 @@ public class Song {
         this.albumImg = albumImg;
         this.spotifyId = spotifyId;
         this.lookUpLyricsUrl = lookUpLyricsUrl;
+        this.index = "not_specified";
     }
 
     public String getSong() {
@@ -52,5 +55,12 @@ public class Song {
 
     public void setPushId(String pushId) {
         this.pushId = pushId;
+    }
+
+    public String getIndex() {
+        return index;
+    }
+    public void setIndex(String index) {
+        this.index = index;
     }
 }

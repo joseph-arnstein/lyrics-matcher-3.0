@@ -75,9 +75,11 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.SongVi
         @Override
         public void onClick(View view) {
             int itemPosition = getLayoutPosition();
+
             Intent intent = new Intent(mContext, SongDetailsActivity.class);
             intent.putExtra("position", itemPosition);
             intent.putExtra("songs", Parcels.wrap(mSongsArray));
+
             mContext.startActivity(intent);
         }
     }

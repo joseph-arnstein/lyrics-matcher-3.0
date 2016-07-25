@@ -23,12 +23,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class SavedSongListActivity extends AppCompatActivity implements OnStartDragListener {
-    private DatabaseReference mSongReference;
+
     private FirebaseSongListAdapter mFirebaseAdapter;
     private ItemTouchHelper mTouchHelper;
 
@@ -40,12 +41,11 @@ public class SavedSongListActivity extends AppCompatActivity implements OnStartD
         setContentView(R.layout.activity_display_songs);
         ButterKnife.bind(this);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        String uid = user.getUid();
+//
+//        mSongReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SONGS).child(uid);
 
-        mSongReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SONGS).child(uid);
-
-        //mSongReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SONGS);
         setUpFirebaseAdapter();
     }
 
@@ -87,8 +87,31 @@ public class SavedSongListActivity extends AppCompatActivity implements OnStartD
     }
 
     private void setUpFirebaseAdapter() {
+//
+//        mFirebaseAdapter = new FirebaseSongListAdapter(Song.class, R.layout.song_list_item, FirebaseSongsViewHolder.class, mSongReference, this, this);
+//
+//        mRecyclerView.setHasFixedSize(true);
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        mRecyclerView.setAdapter(mFirebaseAdapter);
+//
+//        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
+//        mTouchHelper = new ItemTouchHelper(callback);
+//        mTouchHelper.attachToRecyclerView(mRecyclerView);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
 
-        mFirebaseAdapter = new FirebaseSongListAdapter(Song.class, R.layout.song_list_item, FirebaseSongsViewHolder.class, mSongReference, this, this);
+//        mSongReference = FirebaseDatabase
+//                .getInstance()
+//                .getReference(Constants.FIREBASE_CHILD_SONGS)
+//                .child(uid);
+        Query query = FirebaseDatabase.getInstance()
+                .getReference(Constants.FIREBASE_CHILD_SONGS)
+                .child(uid)
+                .orderByChild(Constants.FIREBASE_QUERY_INDEX);
+
+        mFirebaseAdapter = new FirebaseSongListAdapter(Song.class,
+                R.layout.song_list_item, FirebaseSongsViewHolder.class,
+                query, this, this);
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -97,7 +120,6 @@ public class SavedSongListActivity extends AppCompatActivity implements OnStartD
         ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
         mTouchHelper = new ItemTouchHelper(callback);
         mTouchHelper.attachToRecyclerView(mRecyclerView);
-
     }
 
     @Override
